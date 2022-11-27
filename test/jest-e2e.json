@@ -1,9 +1,13 @@
 {
+  "moduleNameMapper": {
+    "^@app(.*)$": "<rootDir>/../src/$1"
+  },
   "moduleFileExtensions": ["js", "json", "ts"],
   "rootDir": ".",
   "testEnvironment": "node",
-  "testRegex": ".e2e-spec.ts$",
+  "testRegex": ".spec.ts$",
   "transform": {
-    "^.+\\.(t|j)s$": "ts-jest"
-  }
+    "^.+\\.(t|j)s$": ["ts-jest", { "tsconfig": "./tests/tsconfig.json" }]
+  },
+  "setupFilesAfterEnv": ["<rootDir>/setup.ts"]
 }
